@@ -43,9 +43,6 @@ class session {
 			
 			}
 			
-			// Update the session timer
-			$db->query("UPDATE `sessions` SET `expires` = $this->expires WHERE `id` = ". $_SESSION['id'] ." LIMIT 0, 1");
-			
 		} else {
 			
 			// Initialise the session
@@ -61,7 +58,7 @@ class session {
 		global $db;
 		
 		// Add it to the database
-		$db->query("INSERT INTO `sessions` (`created`, `expires`) VALUES (". $this->created .", ". $this->expires .")");
+		$db->query("INSERT INTO `sessions`");
 	
 		// Set the ID of the newly created session.
 		$this->id = $db->insert_id;

@@ -5,7 +5,7 @@
  * Configuration file that opens a new database connection
  */
 
-$host     = "rs-web.benargo.net";
+$host     = "rs1.benargo.net";
 $username = "beady";
 $password = "ZNgnGyu364r7xZo32FmAj$";
 $database = "beady";

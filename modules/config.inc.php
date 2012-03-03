@@ -18,7 +18,7 @@ $contact_email = 'ben2.argo@live.uwe.ac.uk';
 
 // Determine whether we're working on a local server
 // or on the real server:
-if (stristr($_SERVER['HTTP_HOST'], '.dev')) {
+if (stristr($_SERVER['HTTP_HOST'], 'local')) {
 	$local = TRUE;
 } else {
 	$local = FALSE;
@@ -34,7 +34,7 @@ if ($local) {
 	// Define the constants:
 	define ('BASE_URI', '/Users/ben/Dropbox/Documents/University/year2/wp/Assignment/');
 	define ('BASE_URL',	'http://wp.uwe.dev/');
-	define ('DB', '/Users/ben/Dropbox/Documents/University/year2/wp/Assignment/includes/mysql.inc');
+	define ('DB', '/Users/ben/Dropbox/Documents/University/Year 2/WP2/Beady/includes/mysql.inc');
 	
 } else {
 

@@ -9,7 +9,7 @@
 ob_start();
 
 // Require the configuration files before any PHP code:
-require_once (__DIR__ .'/modules/config.inc.php');
+require_once ('./modules/config.inc.php');
 
 // Require the database config
 require_once(DB);
