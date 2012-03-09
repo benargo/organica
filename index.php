@@ -15,7 +15,7 @@ require_once ('./modules/config.inc.php');
 require_once(DB);
 
 // Require the session class
-require_once(__DIR__ .'/modules/session.class.php');
+require_once(BASE_URI.'/modules/session.class.php');
 
 // Create a new session object (required for all pages)
 $session = new session();
@@ -70,20 +70,20 @@ switch ($p) {
 } // End of main switch.
 
 // Make sure the file exists:
-if (!file_exists(__DIR__ .'/pages/' . $page)) {
+if (!file_exists(BASE_URI.'/pages/' . $page)) {
 	$page = 'main.inc.php';
 	$page_title = 'Site Home Page';
 }
 
 // Include the header file:
-include_once (__DIR__ .'/includes/header.inc');
+include_once (BASE_URI.'/includes/header.inc');
 
 // Include the content-specific module:
 // $page is determined from the above switch.
-include (__DIR__ .'/pages/' . $page);
+include (BASE_URI.'/pages/' . $page);
 
 // Include the footer file to complete the template:
-include_once (__DIR__ .'/includes/footer.inc');
+include_once (BASE_URI.'/includes/footer.inc');
 
 // Close the database connections
 $db->close();

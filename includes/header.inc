@@ -5,53 +5,55 @@
 // Check for a $page_title value:
 if (!isset($page_title)) $page_title = 'Default Page Title';
 ?><!DOCTYPE html>
-<html dir="ltr" lang="en" class="nojs">
+<html lang="en" dir="ltr" class="nojs">
 	<head>
 		<!-- Meta Information -->
-		<meta charset="UTF-8" />
-		<meta name="robots" content="none" />
+		<meta charset="utf-8" />
 		<meta name="author" content="10008548" />
-		
+		<meta name="description" content="Discover our fantastic range of ecological Cretan holidays with the DiscoverCrete. Fully ABTA and ATOL protected." />
+
 		<!-- Page Title -->
-		<title><?php echo $page_title; ?> - Beady.co.uk</title>
+		<title><?php echo $page_title; ?></title>
 		
-		<!-- Shortcut Icon -->
-		<link type="image/x-icon" rel="shortcut icon" href="./images/favicon.ico" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="<?php echo BASE_URL; ?>styles/beady.css" />
 		
-		<!-- Stylesheets -->
-		<link type="text/css" rel="stylesheet" href="./styles/theme.css" />
-		
-		<!-- Scripts -->
-		<script type="text/javascript" src="./scripts/jquery.min.js"></script>
+		<!-- jQuery -->
+		<script src="<?php echo BASE_URL; ?>scripts/jquery.js"></script>
 	</head>
 	<body>
 		<header>
-			<!-- Logo -->
+			<a id="skip" href="#content" title="Click to skip to the primary content">Skip to Content</a>
 			<hgroup>
-				<h1><a href="./" title="Beady: Home">Beady</a></h1>
+				<a href="./" title="Home page">
+					<h1>West Side Tees</h1>
+					<h2>Est. 2012.</h2>
+				</a>
 			</hgroup>
-			
-			<!-- Navigation -->
-			<nav id="primary"> 
-				<ol><?php
-					if(isset($session->basket)) { ?>
-						<li><a href="./basket?action=view" title="Beady: View My Shopping Basket">Shopping Basket</a></li><?php }
-					if(isset($session->customer)) { // We have a logged-in customer ?>
-						<li><a href="./account?action=manage" title="Beady: My Account">My Account</a></li>
-						<li><a href="./account?action=logout" title="Beady: Log Out of My Account">Log Out</a></li><?php }
-					else { // Customer is not logged in ?>
-						<li><a href="./account?action=login" title="Beady: Log In to My Account">Log In</a></li>
-						<li><a href="./account?action=register" title="Beady: Sign up for an account">Register</a></li><?php } ?>
+			<nav>
+				<ol>
+					<li><a href="<?php echo BASE_URL; ?>" title="Home page">Home</a></li>
+					<?php
+						// For each of the categories we have, print a navigation item.
+						$categories = $db->query("SELECT * FROM `product_categories` ORDER BY `title`");
+						
+						// Loop through each of the categories
+						while($category = $categories->fetch_object()) {
+							
+							?><li><a href="<?php echo BASE_URL; ?>category?id=<?php echo $category->id; ?>"><?php echo $category->title; ?></a></li><?php
+							
+						}
+						
+						// Work out if the user is logged in or not.
+					?>
 				</ol>
-			</nav>	
-			
-			<!-- Search -->
-			<form id="search" method="get" action="./search">
-				<input type="text" name="q" placeholder="Search..." />
-				<input type="submit" value="GO" />
-			</form>
+			</nav>
 		</header>
+		<form id="search" action="<?php echo BASE_URL; ?>search" method="get">
+			<input type="text" name="q" placeholder="Search..." /> <input type="submit" value="Go" />
+		</form>
 		
-		<article>
-
-			
+		<aside>
+			<?php include(BASE_URI.'/includes/sidebar.inc'); ?>
+		</aside>
+		<article id="content">

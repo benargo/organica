@@ -32,9 +32,9 @@ if ($local) {
 	$debug = TRUE;
 	
 	// Define the constants:
-	define ('BASE_URI', '/Users/ben/Dropbox/Documents/University/year2/wp/Assignment/');
-	define ('BASE_URL',	'http://wp.uwe.dev/');
-	define ('DB', '/Users/ben/Dropbox/Documents/University/Year 2/WP2/Beady/includes/mysql.inc');
+	define ('BASE_URI', '/Users/ben/Dropbox/Documents/University/Year 2/WP/Beady/');
+	define ('BASE_URL',	'http://localhost/');
+	define ('DB', '/Users/ben/Dropbox/Documents/University/Year 2/WP/Beady/includes/mysql.inc');
 	
 } else {
 
