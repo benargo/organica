@@ -13,6 +13,9 @@
 # ******************** #
 # ***** SETTINGS ***** #
 
+// Set the timezone to GMT
+@date_default_timezone_set("GMT");
+
 // Errors are emailed here.
 $contact_email = 'ben2.argo@live.uwe.ac.uk'; 
 

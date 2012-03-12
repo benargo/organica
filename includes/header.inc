@@ -26,8 +26,8 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 			<a id="skip" href="#content" title="Click to skip to the primary content">Skip to Content</a>
 			<hgroup>
 				<a href="./" title="Home page">
-					<h1>West Side Tees</h1>
-					<h2>Est. 2012.</h2>
+					<h1>Organica</h1>
+					<h2>Organic Fruit &amp; Veg</h2>
 				</a>
 			</hgroup>
 			<nav>
@@ -44,7 +44,27 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 							
 						}
 						
+						// Unset $categories so we can use it later
+						unset($categories);
+						
+						// If there's an active basket
+						if(isset($session->basket)) {
+						
+							?><li><a href="<?php echo BASE_URL; ?>basket">Basket</a></li><?php
+							
+						}
+						
 						// Work out if the user is logged in or not.
+						if(isset($session->customer)) {
+						
+							?><li><a href="account?a=logout" id="btn_logout">Logout</a></li><?php
+							
+						} else {
+						
+							?><li><a href="account?a=login" id="btn_login">Login</a></li>
+							  <li><a href="account?a=register" id="btn_register">Register</a></li><?php
+							
+						}
 					?>
 				</ol>
 			</nav>

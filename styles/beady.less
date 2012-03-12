@@ -51,13 +51,13 @@
  ***********************************************************************/
 
 /* 0. Variables */
-@dark-brown: #2a1910;
-@med-brown: #6d4f3f;
-@med-beige: #9e7064;
-@light-beige: #fff2e0;
+@dark: #824328;
+@med: #a3693a;
+@light: #d9b066;
+@background: #fff2e0;
 @features: #e7435e;
-@text: #2f1812;
-@white: #f7f6f6;
+@text: #292828;
+@wht: #f7f6f6;
 
 /* 1. Common classes & pseudo-classes
  * Most of these classes are hidden from the compiled CSS, and are used entirely by LESS. */
@@ -110,13 +110,13 @@
 	/* 2.1. Typography */
 	body {
 		font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
-		background: @light-beige;
+		background: @background;
 	}
 	
 	/* 2.2. Header */
 	body > header {
-		background: @dark-brown;
-		border-bottom: solid 3px @med-brown;
+		background: @dark;
+		border-bottom: solid 3px @light;
 		
 		height: 122px;
 	
@@ -127,7 +127,7 @@
 			padding: 5px 0;
 			opacity: 0;
 			
-			background: @light-beige;
+			background: @wht;
 			
 			font-size: 0.7em;
 			color: @text;
@@ -169,11 +169,11 @@
 				text-decoration: none;
 				
 				&:hover {
-					background: @med-brown;
+					background: @med;
 				}
 				
 				&:active {
-					background: @med-brown;
+					background: @med;
 					border: solid 1px @features;
 				}
 				
@@ -186,15 +186,15 @@
 			h1 {
 				font-family: 'Alegreya SC', serif;
 				font-size: 2.6em;
-				color: @white;
+				color: @wht;
 				.align(center);
 				.bold(600);
 				}
 	
 			h2 {
-				font-family: 'Marck Script', serif;
+				font-family: 'Alegreya SC', serif;
 				font-size: 1.1em;
-				color: @light-beige;
+				color: @light;
 				.align(center);
 			}
 		}
@@ -204,7 +204,7 @@
 			float: right;
 			height: 33px;
 			margin: 65px 20px 0 auto;
-			background: @med-brown;
+			background: @light;
 			
 			border: solid 0 transparent;
 			-moz-border-radius-topleft: 5px;
@@ -221,13 +221,18 @@
 				line-height: 33px;
 				list-item-style: none;
 				.align(center);
+				margin: 0 10px 0 0;
+			}
+			
+			li:first-of-type {
+				margin: 0 10px 0 10px;
 			}
 	
 			li > a {
 				display: block;
 				padding: 0 5px;
 			
-				color: @light-beige;
+				color: @text;
 				text-decoration: none;
 			
 				border: solid 0 transparent;
@@ -244,13 +249,11 @@
 				transition: all 200ms ease;
 		
 				&:hover {
-					background: @light-beige;
-					color: @features;
+					background: @med;
 				}
 			
 				&:focus {
-					background: @light-beige;
-					color: @features;
+					background: @med;
 					outline: 0;
 				}
 			}
@@ -262,9 +265,9 @@
 		height: 33px;
 		margin: 0 20px 0 auto;
 		
-		background: @med-brown;
+		background: @light;
 		
-		border: solid 2px @med-brown;
+		border: solid 2px @light;
 		-moz-border-radius-topleft: 0px;
 		-moz-border-radius-topright: 0px;
 		-moz-border-radius-bottomright: 5px;
@@ -278,8 +281,8 @@
 			padding: 2px;
 			margin: -2px 2px 2px;
 			
-			background: @white;
-			border: solid 1px @med-brown;
+			background: @wht;
+			border: solid 1px @light;
 			
 			font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
 			font-size: 0.9em;
@@ -300,7 +303,7 @@
 			background: transparent;
 			border: none;
 			
-			color: @white;
+			color: @wht;
 			font-size: 1.0em;
 			
 			&:hover {
@@ -309,7 +312,7 @@
 			
 			&:active {
 				border: solid 1px @features;
-				background-color: @dark-brown
+				background-color: @dark;
 			}
 			
 			&:focus {
@@ -324,6 +327,20 @@
 		
 		* {
 			margin: 0 0 10px;
+		}
+		
+		a {
+			color: @features;
+			text-decoration: none;
+			
+			&:hover {
+				text-decoration: underline;
+			}
+		
+			&:focus {
+				text-decoration: underline;
+				outline: 0;
+			}
 		}
 	}
 	
