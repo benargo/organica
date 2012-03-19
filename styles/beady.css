@@ -1,8 +1,8 @@
 /***********************************************************************
- * @file: beady.less -> beady.css
+ * @file: creteo.less -> creteo.css
  * @lang: LESS -> CSS
  * @author: 10008548
- * @project: WP Project
+ * @project: WDP Project 2
  * @version: 1.0
  *
  * This is the primary style sheet for use with Web Design Principles
@@ -55,6 +55,12 @@
 * {
   margin: 0;
   padding: 0;
+}
+.bold {
+  font-weight: bold;
+}
+.italics {
+  font-style: italic;
 }
 @font-face {
   font-family: 'Alegreya SC';
@@ -276,6 +282,31 @@
   }
   body > aside * {
     margin: 0 0 10px;
+  }
+  body > aside .product {
+    padding: 5px;
+    border: solid 2px transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  body > aside .product a:hover {
+    text-decoration: none;
+  }
+  body > aside .product .product_img {
+    display: block;
+    padding: 10px;
+    background-color: #ffffff;
+    border: solid 2px transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  body > aside .product .product_img:hover {
+    border: solid 2px transparent;
+  }
+  body > aside .product:hover {
+    border: solid 2px #E7435E;
   }
   body > aside a {
     color: #e7435e;
