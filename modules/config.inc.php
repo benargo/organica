@@ -106,7 +106,7 @@ function my_error_handler ($e_number, $e_message, $e_file, $e_line, $e_vars) {
 } // End of my_error_handler() definition.
 
 // Use my error handler:
-set_error_handler ('my_error_handler');
+set_error_handler('my_error_handler');
 
 # ***** ERROR MANAGEMENT ***** #
 # **************************** #

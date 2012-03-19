@@ -6,7 +6,11 @@
  *	the templates, and any content-specific modules.
  */
 
+// Start output buffering
 ob_start();
+
+// Start PHP sessions
+session_start();
 
 // Require the configuration files before any PHP code:
 require_once ('modules/config.inc.php');
@@ -14,19 +18,13 @@ require_once ('modules/config.inc.php');
 // Require the database config
 require_once(DB);
 
-// Require the session class
-require_once(BASE_URI.'/modules/session.class.php');
-
-// Create a new session object (required for all pages)
-$session = new session();
-
 // Validate what page to show:
 if (isset($_GET['p'])) {
 	$p = $_GET['p'];
 } elseif (isset($_POST['p'])) { // Forms
 	$p = $_POST['p'];
 } else {
-	$p = NULL;
+	$p = 'home'	;
 }
 
 // Determine what page to display:
@@ -60,11 +58,16 @@ switch ($p) {
 		$page = 'search.page.php';
 		$page_title = 'Search Results';
 		break;
+		
+	case 'home':
+		$page = 'main.page.php';
+		$page_title = 'Site Home Page';
+		break;
 	
 	// Default is to include the main page.
 	default:
-		$page = 'main.page.php';
-		$page_title = 'Site Home Page';
+		$page = '404.page.php';
+		$page_title = '404 Not Found';
 		break;
 		
 } // End of main switch.

@@ -5,7 +5,7 @@
 // Check for a $page_title value:
 if (!isset($page_title)) $page_title = 'Default Page Title';
 ?><!DOCTYPE html>
-<html lang="en" dir="ltr" class="nojs">
+<html lang="en" dir="ltr" class="nojs <?php echo $p; ?>">
 	<head>
 		<!-- Meta Information -->
 		<meta charset="utf-8" />
@@ -17,6 +17,7 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="<?php echo BASE_URL; ?>styles/beady.css" />
+		<?php if($p = 'home') { ?><link rel="stylesheet" href="<?php echo BASE_URL; ?>styles/home.css" /><?php } ?>
 		
 		<!-- jQuery -->
 		<script src="<?php echo BASE_URL; ?>scripts/jquery.js"></script>
@@ -48,14 +49,14 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 						unset($categories);
 						
 						// If there's an active basket
-						if(isset($session->basket)) {
+						if(isset($session['basket'])) {
 						
 							?><li><a href="<?php echo BASE_URL; ?>basket">Basket</a></li><?php
 							
 						}
 						
 						// Work out if the user is logged in or not.
-						if(isset($session->customer)) {
+						if(isset($session['customer'])) {
 						
 							?><li><a href="account?a=logout" id="btn_logout">Logout</a></li><?php
 							
