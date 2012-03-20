@@ -68,7 +68,7 @@ class category {
 			<a href="/product?id=<?php echo $product->id; ?>" title="More Information: <?php echo $product->title; ?>" class="product">
 					<h3><?php echo $product->title; ?></h3>
 					<p>&pound;<?php echo $product->price; ?></p>
-					<p><img src="/images/<?php echo $product->image; ?>" alt="Product Image: <?php echo $product->title; ?>" /></p>
+					<p><img src="<?php echo BASE_URL; ?>images/<?php echo $product->image; ?>" alt="Product Image: <?php echo $product->title; ?>" /></p>
 			</a>
 <?php	}
 		
