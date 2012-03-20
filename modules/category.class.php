@@ -11,9 +11,6 @@ class category {
 	public $id;
 	public $title;
 	private $description;
-	private $start;
-	private $finish;
-	private $limit = 20;
 
 	public function __construct($id) {
 		
@@ -35,6 +32,8 @@ class category {
 			
 		}
 		
+		return true;
+		
 	}
 	
 	public function description() {
@@ -48,9 +47,8 @@ class category {
 		$final = "<section id=\"desc\">\n";
 		
 		// For each of the lines available
-		for($i = 0; $i <= count($lines); $i++) {
-			echo $i;
-			// $final .= "<p>$lines[$i]</p>\n";
+		for($i = 0; $i <= count($lines)-1; $i++) {
+			$final .= "<p>$lines[$i]</p>\n";
 		}
 		
 		$final .= "</section>\n";
@@ -59,18 +57,20 @@ class category {
 		
 	}
 	
-	public function products($page) {
+	public function products() {
 		
 		// Include database configuration
 		global $db;
 		
-		// Work out where to start
-		$this->start = $page * 20;
-		$this->finish = $this->start + $this->limit;
+		$query = $db->query("SELECT * FROM `products` WHERE `category` = ". $this->id);
 		
-		$query = $db->query("SELECT * FROM `products` WHERE `category` = $this->id LIMIT $this->start, $this->finish");
-		
-		return $query->fetch_object();
+		while($product = $query->fetch_object()) { ?>
+			<a href="/product?id=<?php echo $product->id; ?>" title="More Information: <?php echo $product->title; ?>" class="product">
+					<h3><?php echo $product->title; ?></h3>
+					<p>&pound;<?php echo $product->price; ?></p>
+					<p><img src="/images/<?php echo $product->image; ?>" alt="Product Image: <?php echo $product->title; ?>" /></p>
+			</a>
+<?php	}
 		
 	}
 	

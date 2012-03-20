@@ -10,7 +10,7 @@ Options -Indexes +FollowSymLinks -Multiviews
 	RewriteEngine On
 	
 	# 2.2 mod_rewrite base
-	RewriteBase /~b2-argo/public_html/wp/assignment/
+	RewriteBase /
 	
 	# 2.3. Rewrite pages
 	RewriteCond %{REQUEST_FILENAME} !-d
@@ -29,3 +29,9 @@ BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
 SetEnvIfNoCase Request_URI \
 \.(?:gif|jpe?g|png)$ no-gzip dont-vary
 Header append Vary User-Agent env=!dont-vary
+
+# Show errors
+php_flag display_errors on
+php_flag html_errors on
+php_value docref_root 0
+php_value docref_ext 0

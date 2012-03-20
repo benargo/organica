@@ -9,7 +9,7 @@
 if (!defined('BASE_URL')) {
 
 	// Need the BASE_URL, defined in the config file:
-	require_once ('../modules/config.inc.php');
+		require_once ('../modules/config.inc.php');
 	
 	// Redirect to the index page:
 	$url = BASE_URL;
@@ -37,13 +37,5 @@ $category = new category($_GET['id']);
 <?php echo $category->description(); ?>
 
 <section id="products">
-<?php while($product = $category->products()) { ?>
-
-	<a href="/product?id=<?php echo $product->id; ?>" title="More Information: <?php echo $product->title; ?>" class="product">
-			<h3><?php echo $product->title; ?></h3>
-			<p>&pound;<?php echo $product->price; ?></p>
-			<p><img src="/images/products/<?php echo $product->image; ?>" alt="Product Image: <?php echo $product->title; ?>" /></p>
-	</a>
-	
-<?php } ?>
+<?php $category->products(); ?>
 </section>

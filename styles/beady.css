@@ -275,6 +275,10 @@
     text-decoration: underline;
     outline: 0;
   }
+  body > article .product {
+    text-align: center;
+    display: inline-block;
+  }
   body > aside {
     float: right;
     width: 300px;
