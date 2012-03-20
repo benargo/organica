@@ -28,7 +28,7 @@ if(!isset($_GET['id'])) { // We have a category ID in the querystring
 	
 }
 
-require_once(BASE_URI.'modules/category.class.php');
+require(BASE_URI.'modules/category.class.php');
 
 $category = new category($_GET['id']);
 ?>

@@ -1,0 +1,25 @@
+.home .product {
+  padding: 5px;
+  border: solid 2px transparent;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.home .product a {
+  text-decoration: none;
+}
+.home .product .product_img {
+  display: block;
+  padding: 10px;
+  background-color: #ffffff;
+  border: solid 2px transparent;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.home .product .product_img:hover {
+  border: solid 2px transparent;
+}
+.home .product:hover {
+  border: solid 2px #E7435E;
+}
