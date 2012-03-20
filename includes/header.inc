@@ -17,10 +17,7 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="<?php echo BASE_URL; ?>styles/beady.css" />
-		<?php if($p = 'home') { ?><link rel="stylesheet" href="<?php echo BASE_URL; ?>styles/home.css" /><?php } ?>
 		
-		<!-- jQuery -->
-		<script src="<?php echo BASE_URL; ?>scripts/jquery.js"></script>
 	</head>
 	<body>
 		<header>
@@ -42,6 +39,7 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 						while($category = $categories->fetch_object()) {
 							
 							?><li><a href="<?php echo BASE_URL; ?>category?id=<?php echo $category->id; ?>"><?php echo $category->title; ?></a></li><?php
+							echo "\n";
 							
 						}
 						
@@ -52,18 +50,20 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 						if(isset($session['basket'])) {
 						
 							?><li><a href="<?php echo BASE_URL; ?>basket">Basket</a></li><?php
+							echo "\n";
 							
 						}
 						
 						// Work out if the user is logged in or not.
 						if(isset($session['customer'])) {
 						
-							?><li><a href="account?a=logout" id="btn_logout">Logout</a></li><?php
+							?><li><a href="<?php echo BASE_URL; ?>account?a=logout" id="btn_logout">Logout</a></li><?php
+							echo "\n";
 							
 						} else {
 						
-							?><li><a href="account?a=login" id="btn_login">Login</a></li>
-							  <li><a href="account?a=register" id="btn_register">Register</a></li><?php
+							?><li><a href="<?php echo BASE_URL; ?>account?a=login" id="btn_login">Login</a></li>
+							  <li><a href="<?php echo BASE_URL; ?>account?a=register" id="btn_register">Register</a></li><?php
 							
 						}
 					?>

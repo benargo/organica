@@ -8,20 +8,17 @@
 class category {
 	
 	// Define variables
-	private $id;
+	public $id;
 	public $title;
-	public $description;
+	private $description;
+	private $start;
+	private $finish;
+	private $limit = 20;
 
-	// Variables with default values
-	public $limit = 20;
-	public $start = 0;
-	public $finish = $this->start+$this->limit;
-
-	
 	public function __construct($id) {
 		
 		// Include database configuration
-		require(DB);
+		global $db;
 		
 		// Query the database to get the category
 		$query = $db->query("SELECT * FROM `product_categories` WHERE `id` = $id LIMIT 0, 1");
@@ -34,15 +31,16 @@ class category {
 			// Update the variables
 			$this->id = $row->id;
 			$this->title = $row->title;
-			$this->description = $this->setDescription($row->description);
+			$this->description = $row->description;
 			
 		}
 		
-		$db->close();
-	
 	}
 	
-	private function setDescription($content) {
+	public function description() {
+		
+		// Get the value of the description
+		$content = $this->description;
 		
 		// Split the description into an array, with a newline being the delimiter
 		$lines = explode("\n", $content);
@@ -50,22 +48,21 @@ class category {
 		$final = "<section id=\"desc\">\n";
 		
 		// For each of the lines available
-		while($line = $lines) {
-			 $final .= "<p>$line</p>\n";
+		for($i = 0; $i <= count($lines); $i++) {
+			echo $i;
+			// $final .= "<p>$lines[$i]</p>\n";
 		}
 		
 		$final .= "</section>\n";
 		
 		return $final;
 		
-		$db->close();
-		
 	}
 	
 	public function products($page) {
 		
 		// Include database configuration
-		require(DB);
+		global $db;
 		
 		// Work out where to start
 		$this->start = $page * 20;
@@ -74,8 +71,6 @@ class category {
 		$query = $db->query("SELECT * FROM `products` WHERE `category` = $this->id LIMIT $this->start, $this->finish");
 		
 		return $query->fetch_object();
-		
-		$db->close();
 		
 	}
 	

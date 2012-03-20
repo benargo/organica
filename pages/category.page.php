@@ -12,7 +12,7 @@ if (!defined('BASE_URL')) {
 	require_once ('../modules/config.inc.php');
 	
 	// Redirect to the index page:
-	$url = BASE_URL . 'index.php';
+	$url = BASE_URL;
 	header ("Location: $url");
 	exit;
 	
@@ -20,25 +20,21 @@ if (!defined('BASE_URL')) {
 
 
 // Process which category to render
-if(isset($_GET['id'])) { // We have a category ID in the querystring
-	
-	$category = new category($_GET['id']);
-	
-} else { // No category is defined
+if(!isset($_GET['id'])) { // We have a category ID in the querystring
 	
 	// Need the BASE_URL, defined in the config file:
-	require_once ('../modules/config.inc.php');
-	
-	// Redirect to the index page:
-	$url = BASE_URL . 'index.php';
-	header ("Location: $url");
+	require_once(BASE_URI.'/pages/404.page.php'); 
 	exit;
 	
 }
+
+require_once(BASE_URI.'modules/category.class.php');
+
+$category = new category($_GET['id']);
 ?>
 
-<h2><?php echo $category->title; ?></h2>
-<?php echo $category->description; ?>
+<h1><?php echo $category->title; ?></h1>
+<?php echo $category->description(); ?>
 
 <section id="products">
 <?php while($product = $category->products()) { ?>

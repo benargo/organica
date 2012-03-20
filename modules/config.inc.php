@@ -42,7 +42,7 @@ if ($local) {
 } else {
 
 	define ('BASE_URI', '/nas/students/b/b2-argo/unix/public_html/wp/assignment/');
-	define ('BASE_URL',	'http://www.cems.uwe.ac.uk/~b2-argo/wp/assigmment/');
+	define ('BASE_URL',	'http://www.cems.uwe.ac.uk/~b2-argo/wp/assignment/');
 	define ('DB', '/nas/students/b/b2-argo/unix/public_html/wp/assignment/includes/mysql.inc');
 	
 }
@@ -74,7 +74,7 @@ if (!isset($debug)) {
 # ***** ERROR MANAGEMENT ***** #
 
 // Create the error handler.
-function my_error_handler ($e_number, $e_message, $e_file, $e_line, $e_vars) {
+function my_error_handler($e_number, $e_message, $e_file, $e_line, $e_vars) {
 
 	global $debug, $contact_email;
 	
@@ -87,7 +87,7 @@ function my_error_handler ($e_number, $e_message, $e_file, $e_line, $e_vars) {
 	// Append $e_vars to the $message.
 	$message .= "<pre>" . print_r ($e_vars, 1) . "</pre>\n<br />";
 	
-	if ($debug) { // Show the error.
+	if ($debug == TRUE) { // Show the error.
 	
 		echo '<p class="error">' . $message . '</p>';
 		
