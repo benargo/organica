@@ -47,7 +47,7 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 						unset($categories);
 						
 						// If there's an active basket
-						if(isset($session['basket'])) {
+						if(isset($_SESSION['basket'])) {
 						
 							?><li><a href="<?php echo BASE_URL; ?>basket">Basket</a></li><?php
 							echo "\n";
@@ -55,7 +55,7 @@ if (!isset($page_title)) $page_title = 'Default Page Title';
 						}
 						
 						// Work out if the user is logged in or not.
-						if(isset($session['customer'])) {
+						if(isset($_SESSION['customer'])) {
 						
 							?><li><a href="<?php echo BASE_URL; ?>account?a=logout" id="btn_logout">Logout</a></li><?php
 							echo "\n";

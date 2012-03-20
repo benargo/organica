@@ -14,9 +14,6 @@ class basket {
 	// Construction function
 	public function __construct() {
 		
-		// Allow us to access sessions
-		session_start();
-		
 		// First include the database
 		global $db;
 		
@@ -167,24 +164,22 @@ class basket {
 		// Run the database query
 		$sql = $db->query("SELECT * FROM `basket_items` WHERE `basket` = ". $this->id ." AND `product` = $product LIMIT 0, 1");
 		
-		// If it already exists
-		if($sql->fetch_object()) {
-			
+		// Check the object.
+		if($obj = $sql->fetch_object()) {
+		
 			// Get the row id
-			$row_id = $sql->id;
-			
+			$row_id = $obj->id;
+		
 			// Update the value
 			$db->query("UPDATE `basket_items` SET `quantity` = $quantity WHERE `id` = $row_id");
 			
-			// And return true
+			// Return true
 			return true;
-			
-		} else {
 		
-			// Else return false
-			return false;
-			
 		}
+		
+		// And return true
+		return false;
 		
 	}
 	

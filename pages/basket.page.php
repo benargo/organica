@@ -81,13 +81,8 @@ switch($action) {
 	// If we didn't set a task (illegal call)
 	default:
 		
-		// Redirect to the home page
-		header("location: ". BASE_URL);
-		
-		exit;
-	
-		break;
 		// Finish this iteration
+		break;
 }
 ?><h1>Basket</h1><?php
 
