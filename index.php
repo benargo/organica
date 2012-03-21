@@ -93,7 +93,7 @@ include_once (BASE_URI.'/includes/footer.inc');
 $db->close();
 
 // Set the basket session
-if(isset($basket)) {
+if($basket) {
 	$_SESSION['basket'] = $basket->id;
 }
 
