@@ -41,7 +41,7 @@ class basket {
 			$basket_id = $_SESSION['basket'];
 			
 			// Run the database query
-			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
+			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1") or die(var_dump($basket_id));
 			
 			// Set it to an object
 			$basket = $sql->fetch_object();
