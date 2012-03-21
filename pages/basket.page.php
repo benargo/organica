@@ -119,7 +119,7 @@ switch($action) {
 	}
 ?><p>Total: <span class="bold">&pound;<?php echo $basket->calcFinalValue(); ?></span></p>
 <p class="center"><form action="<?php echo BASE_URL; ?>checkout" method="post">
-	<input type="hidden" name="stage" value="1" />
+	<input type="hidden" name="stage" value="0" />
 	<input type="submit" value="Checkout" />
 </form><form action="<?php echo BASE_URL; ?>basket" method="post">
 	<input type="hidden" name="a" value="empty" />

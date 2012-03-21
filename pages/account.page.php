@@ -30,7 +30,7 @@ if(isset($_GET['a'])) {
 } elseif(isset($_POST['a'])) {
 	$action = $_POST['a'];
 } else {
-	$action = "both_forms";
+	$action = "login";
 }
 	
 	// Switch through all the actions
@@ -38,6 +38,8 @@ if(isset($_GET['a'])) {
 		
 		// Login
 		case "login": ?><h1>Login</h1>
+		
+		<p>Please login to continue. If you do not have an account you can <a href="<?php echo BASE_URL; ?>account?a=register">register for one</a>.</p>
 		
 		<form action="<?php echo BASE_URL; ?>account" method="post">
 			<input type="hidden" name="a" value="loginSubmit" />

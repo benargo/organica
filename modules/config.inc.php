@@ -70,6 +70,45 @@ if (!isset($debug)) {
 # ***** SETTINGS ***** #
 # ******************** #
 
+/** Function: Get file through UWE proxy **/
+function get_file($uri) {
+
+/*********************************************************
+ * @function: get_file
+ * @author: Chris Wallace
+ * @created: 30 November 2009
+ * @updated: 20 January 2012
+ * @source: http://www.cems.uwe.ac.uk/~pchatter/php/dsa/dsa_utility.phps
+ *
+ * This function will get any file through the UWE proxy. 
+ *
+ * It has been adapted so that if we
+ * are running on our local testing server, we do not
+ * need to use this function, as Ben's private server
+ * does not have proxy requirements.
+ *********************************************************/
+
+	// Conditional: Do we need to use the proxy?
+	if(stristr($_SERVER['HTTP_HOST'], 'cems.uwe.ac.uk')) { // Conditional @value: Yes
+	
+		// Create a context for the PHP file_get_contents function
+		$context = stream_context_create(array('http'=> array('proxy'=>'proxysg.uwe.ac.uk:8080', 'header'=>'Cache-Control: no-cache'))); 
+	
+		// Get the contents of the requested URI
+		$contents = file_get_contents($uri, false, $context); 
+	
+	} else { // Conditional @value: No
+	
+		// Get the contents of the requres URI without use of the proxy
+		$contents = file_get_contents($uri, false);
+	
+	} // End Conditional
+	
+	// And return the contents of the file
+	return $contents;
+	
+}
+
 # **************************** #
 # ***** ERROR MANAGEMENT ***** #
 
