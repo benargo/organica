@@ -25,10 +25,6 @@ require_once(BASE_URI.'modules/product.class.php');
 // Create a new product
 $basket = new basket();
 
-echo "<pre>9 = ";
-var_dump($_SESSION['basket']);
-echo "</pre>";
-
 // Get the action
 $action = $_POST['a'];
 

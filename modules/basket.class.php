@@ -33,8 +33,6 @@ class basket {
 		} else {
 			
 			$basket_id = $_SESSION['basket'];
-			
-			print_r($basket_id);
 	
 			// Run the database query
 			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
