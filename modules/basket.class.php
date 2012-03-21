@@ -25,14 +25,9 @@ class basket {
 
 			// Get the ID number of the basket
 			$basket_id = $db->insert_id;
-			
-			print_r($basket_id);
 
 			// Set the ID number of the newly created basket to a session
 			$_SESSION['basket'] = $basket_id;
-			
-			print_r($_SESSION['basket']);
-			die();
 
 			// Set the object variables
 			$this->id = $basket_id;
@@ -43,10 +38,10 @@ class basket {
 			
 		} else {
 			
-			$basket = $_SESSION['basket'];
+			$basket_id = $_SESSION['basket'];
 			
 			// Run the database query
-			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket ." LIMIT 0, 1");
+			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
 			
 			// Set it to an object
 			$basket = $sql->fetch_object();
