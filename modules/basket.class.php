@@ -61,12 +61,12 @@ class basket {
 			// Set the variables
 			$this->id = $basket->id;
 			
-			echo "\n\n5 = "
+			echo "\n\n5 = ";
 			var_dump($_SESSION['basket']);
 			
 			$this->paid = $basket->paid;
 			
-			echo "\n\n6 = "
+			echo "\n\n6 = ";
 			var_dump($_SESSION['basket']);
 			
 			echo "</pre>";
