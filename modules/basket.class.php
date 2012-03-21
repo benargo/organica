@@ -41,10 +41,12 @@ class basket {
 			$basket = $sql->fetch_object();
 
 			// Set the variables
-			$this->id = (int) $basket->id;
-			$this->paid = (int) $basket->paid;
+			$this->id = $basket->id;
+			$this->paid = $basket->paid;
 			
 		}
+		
+		var_dump($basket_id);
 		
 		$_SESSION['basket'] = $basket_id;
 	}
