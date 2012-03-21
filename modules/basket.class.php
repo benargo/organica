@@ -17,59 +17,34 @@ class basket {
 		// First include the database
 		global $db;
 		
-		echo "<pre>0 = ";
-		
 		// Check to see if we have a session
 		if(!isset($_SESSION['basket'])) {
-			
-			echo 'new';
-			
+
 			// Create a basket
 			$db->query("INSERT INTO `basket` (`paid`) VALUES (0)");
 
 			// Get the ID number of the basket
 			$basket_id = $db->insert_id;
 
-			// Set the ID number of the newly created basket to a session
-			$_SESSION['basket'] = $basket_id;
-
 			// Set the object variables
 			$this->id = $basket_id;
 			$this->paid = 0;
 			
 		} else {
-			echo "\n\n1 = ";
-			var_dump($_SESSION['basket']);
 			
 			$basket_id = $_SESSION['basket'];
 			
-			echo "\n\n2 = ";
-			var_dump($_SESSION['basket']);
-			
+			print_r($basket_id);
+	
 			// Run the database query
 			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
-			
-			echo "\n\n3 = ";
-			var_dump($_SESSION['basket']);
-			
+
 			// Set it to an object
 			$basket = $sql->fetch_object();
-			
-			echo "\n\n4 = ";
-			var_dump($_SESSION['basket']);
-			
+
 			// Set the variables
 			$this->id = $basket->id;
-			
-			echo "\n\n5 = ";
-			var_dump($_SESSION['basket']);
-			
 			$this->paid = $basket->paid;
-			
-			echo "\n\n6 = ";
-			var_dump($_SESSION['basket']);
-			
-			echo "</pre>";
 			
 		}
 	}
