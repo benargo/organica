@@ -45,6 +45,8 @@ class basket {
 			$this->paid = $basket->paid;
 			
 		}
+		
+		$_SESSION['basket'] = $basket_id;
 	}
 	
 	// Add an item to the basket
