@@ -32,16 +32,13 @@ class basket {
 			// Set the object variables
 			$this->id = $basket_id;
 			$this->paid = 0;
-
-			// Return true
-			return true;
 			
 		} else {
 			
 			$basket_id = $_SESSION['basket'];
 			
 			// Run the database query
-			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1") or die(var_dump($basket_id));
+			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
 			
 			// Set it to an object
 			$basket = $sql->fetch_object();
@@ -50,10 +47,12 @@ class basket {
 			$this->id = $basket->id;
 			$this->paid = $basket->paid;
 			
-			// Return true
-			return true;
-			
 		}
+		
+		var_dump($_SESSION['basket']);
+		
+		// Return true
+		return true;
 	}
 	
 	// Add an item to the basket
