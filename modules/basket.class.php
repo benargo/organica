@@ -17,7 +17,7 @@ class basket {
 		// First include the database
 		global $db;
 		
-		echo "0 = ";
+		echo "<pre>0 = ";
 		
 		// Check to see if we have a session
 		if(!isset($_SESSION['basket'])) {
