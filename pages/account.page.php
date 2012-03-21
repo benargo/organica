@@ -18,7 +18,7 @@ if (!defined('BASE_URL')) {
 } // End of defined() IF.
 
 // Require the account class
-require_once(BASE_URI.'modules/account.class.php');
+require_once(BASE_URI.'modules/customer.class.php');
 
 // Create a new instance of the account class
 $customer = new customer();
@@ -114,7 +114,5 @@ if(isset($_GET['a'])) {
 			// Finish this itteration
 			break;
 	}
-	
-}
 
 ?>

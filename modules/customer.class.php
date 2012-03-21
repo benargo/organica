@@ -24,7 +24,7 @@ class customer {
 		global $db;
 		
 		// Check out whether we have a user set in the session
-		if(isset($_SESSION['customer']) { // Yes there is one
+		if(isset($_SESSION['customer'])) { // Yes there is one
 			
 			$id = $_SESSION['customer'];
 		
@@ -82,7 +82,7 @@ class customer {
 			}
 			
 			// Echo out the end of the option
-			echo ">". $title->name; ."</option>";
+			echo ">". $title->name ."</option>";
 			
 		}
 		

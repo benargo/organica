@@ -224,6 +224,10 @@ class basket {
 		$db->query("DELETE FROM `basket_items` WHERE `basket` = ". $this->id);
 		
 	}
+	
+	public function destroyBasket() {
+		unset($_SESSION['basket']);
+	}
 }
 	
 ?>
