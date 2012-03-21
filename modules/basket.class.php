@@ -36,20 +36,38 @@ class basket {
 			$this->paid = 0;
 			
 		} else {
-			
-			echo 'old';
+			echo "<pre> 1 = ";
+			var_dump($_SESSION['basket']);
 			
 			$basket_id = $_SESSION['basket'];
+			
+			echo "\n\n2 = ";
+			var_dump($_SESSION['basket']);
 			
 			// Run the database query
 			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
 			
+			echo "\n\n3 = ";
+			var_dump($_SESSION['basket']);
+			
 			// Set it to an object
 			$basket = $sql->fetch_object();
 			
+			echo "\n\n4 = ";
+			var_dump($_SESSION['basket']);
+			
 			// Set the variables
 			$this->id = $basket->id;
+			
+			echo "\n\n5 = "
+			var_dump($_SESSION['basket']);
+			
 			$this->paid = $basket->paid;
+			
+			echo "\n\n6 = "
+			var_dump($_SESSION['basket']);
+			
+			echo "</pre>";
 			
 		}
 		
