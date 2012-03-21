@@ -20,16 +20,7 @@ if (!defined('BASE_URL')) {
 
 // Include the product class
 require_once(BASE_URI.'modules/basket.class.php');
-
-echo "<pre>7 = ";
-var_dump($_SESSION['basket']);
-echo "</pre>";
-
 require_once(BASE_URI.'modules/product.class.php');
-
-echo "<pre>8 = ";
-var_dump($_SESSION['basket']);
-echo "</pre>";
 
 // Create a new product
 $basket = new basket();
@@ -40,10 +31,6 @@ echo "</pre>";
 
 // Get the action
 $action = $_POST['a'];
-
-echo "<pre>10 = ";
-var_dump($_SESSION['basket']);
-echo "</pre>";
 
 // Loop through the possible actions
 switch($action) {
@@ -58,10 +45,6 @@ switch($action) {
 		// Run the database query
 		$basket->addItem($id, $q) or die('Failed to add item to basket');
 		
-		echo "<pre>11 = ";
-		var_dump($_SESSION['basket']);
-		echo "</pre>";
-		
 		// Finish this iteration
 		break;
 	
@@ -75,10 +58,6 @@ switch($action) {
 		// Run the database query
 		$basket->changeQuantity($id, $q) or die('Failed to update basket');
 		
-		echo "<pre>12 = ";
-		var_dump($_SESSION['basket']);
-		echo "</pre>";
-		
 		// Finish this iteration
 		break;
 		
@@ -90,10 +69,6 @@ switch($action) {
 		
 		// Run the database query
 		$basket->rmItem($id);
-		
-		echo "<pre>13 = ";
-		var_dump($_SESSION['basket']);
-		echo "</pre>";
 		
 		// Finish this iteration
 		break;

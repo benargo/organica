@@ -72,9 +72,6 @@ class basket {
 			echo "</pre>";
 			
 		}
-		
-		// Return true
-		return true;
 	}
 	
 	// Add an item to the basket
