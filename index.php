@@ -6,11 +6,11 @@
  *	the templates, and any content-specific modules.
  */
 
-// Start output buffering
-ob_start();
-
 // Start PHP sessions
 session_start();
+
+// Start output buffering
+ob_start();
 
 // Require the configuration files before any PHP code:
 require_once('modules/config.inc.php');

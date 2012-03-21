@@ -38,8 +38,10 @@ class basket {
 			
 		} else {
 			
+			$basket = $_SESSION['basket'];
+			
 			// Run the database query
-			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $_SESSION['basket'] ." LIMIT 0, 1");
+			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket ." LIMIT 0, 1");
 			
 			// Set it to an object
 			$basket = $sql->fetch_object();
