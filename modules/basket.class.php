@@ -17,6 +17,8 @@ class basket {
 		// First include the database
 		global $db;
 		
+		echo "0 = ";
+		
 		// Check to see if we have a session
 		if(!isset($_SESSION['basket'])) {
 			
@@ -36,7 +38,7 @@ class basket {
 			$this->paid = 0;
 			
 		} else {
-			echo "<pre> 1 = ";
+			echo "1 = ";
 			var_dump($_SESSION['basket']);
 			
 			$basket_id = $_SESSION['basket'];
