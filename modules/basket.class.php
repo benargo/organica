@@ -20,6 +20,8 @@ class basket {
 		// Check to see if we have a session
 		if(!isset($_SESSION['basket'])) {
 			
+			echo 'new';
+			
 			// Create a basket
 			$db->query("INSERT INTO `basket` (`paid`) VALUES (0)");
 
@@ -34,6 +36,8 @@ class basket {
 			$this->paid = 0;
 			
 		} else {
+			
+			echo 'old';
 			
 			$basket_id = $_SESSION['basket'];
 			
