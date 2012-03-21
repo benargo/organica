@@ -40,9 +40,6 @@ class basket {
 			
 			$basket = $_SESSION['basket'];
 			
-			var_dump($basket);
-			die();
-			
 			// Run the database query
 			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket ." LIMIT 0, 1");
 			
