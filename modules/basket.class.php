@@ -27,10 +27,12 @@ class basket {
 			$basket_id = $db->insert_id;
 			
 			print_r($basket_id);
-			die();
 
 			// Set the ID number of the newly created basket to a session
 			$_SESSION['basket'] = $basket_id;
+			
+			print_r($_SESSION['basket']);
+			die();
 
 			// Set the object variables
 			$this->id = $basket_id;
