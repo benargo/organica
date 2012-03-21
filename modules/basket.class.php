@@ -32,7 +32,7 @@ class basket {
 			
 		} else {
 			
-			$basket_id = $_SESSION['basket'];
+			$basket_id = (int) $_SESSION['basket'];
 	
 			// Run the database query
 			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
@@ -41,8 +41,8 @@ class basket {
 			$basket = $sql->fetch_object();
 
 			// Set the variables
-			$this->id = $basket->id;
-			$this->paid = $basket->paid;
+			$this->id = (int) $basket->id;
+			$this->paid = (int) $basket->paid;
 			
 		}
 		
