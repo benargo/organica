@@ -38,7 +38,7 @@ class basket {
 			$this->paid = 0;
 			
 		} else {
-			echo "1 = ";
+			echo "\n\n1 = ";
 			var_dump($_SESSION['basket']);
 			
 			$basket_id = $_SESSION['basket'];
