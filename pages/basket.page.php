@@ -86,11 +86,23 @@ switch($action) {
 }
 ?><h1>Basket</h1><?php
 
+	echo "<pre>7 = ";
+	var_dump($_SESSION['basket']);
+	echo "</pre>";
+
 	// Loop through each of the basket items
 	foreach($basket->getItems() as $item) {
 		
+		echo "<pre>8.". $item->id ." = ";
+		var_dump($_SESSION['basket']);
+		echo "</pre>";
+		
 		// Get a product initialisation of each item
 		$product = new product($item->product);
+		
+		echo "<pre>9.". $item->id ." = ";
+		var_dump($_SESSION['basket']);
+		echo "</pre>";
 		
 		?><section class="product">
 			<h2><?php echo $product->title; ?></h2>
@@ -107,6 +119,10 @@ switch($action) {
 						}
 						echo ">$i</option>";
 					}
+					
+					echo "<pre>10.". $item->id ." = ";
+					var_dump($_SESSION['basket']);
+					echo "</pre>";
 					?></select> <input type="submit" value="Update" /></p>
 				</form>
 				<form action="<?php echo BASE_URL; ?>basket" method="post">
@@ -117,6 +133,10 @@ switch($action) {
 			</div>
 		</section><?php
 	}
+	
+	echo "<pre>11.". $item->id ." = ";
+	var_dump($_SESSION['basket']);
+	echo "</pre>";
 ?><p>Total: <span class="bold">&pound;<?php echo $basket->calcFinalValue(); ?></span></p>
 <p class="center"><form action="<?php echo BASE_URL; ?>checkout" method="post">
 	<input type="hidden" name="stage" value="0" />
@@ -124,4 +144,8 @@ switch($action) {
 </form><form action="<?php echo BASE_URL; ?>basket" method="post">
 	<input type="hidden" name="a" value="empty" />
 	<input type="submit" value="Empty Basket" />
-</form></p>
+</form></p><?php
+echo "<pre>12.". $item->id ." = ";
+var_dump($_SESSION['basket']);
+echo "</pre>";
+?>

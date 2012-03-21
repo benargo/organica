@@ -92,8 +92,6 @@ include_once (BASE_URI.'/includes/footer.inc');
 // Close the database connections
 $db->close();
 
-echo "<pre>7 = ". var_dump($_SESSION['basket']) ."</pre>";
-
 ob_end_flush();
 
 ?>
