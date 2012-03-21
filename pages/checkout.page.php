@@ -80,6 +80,7 @@ switch($stage) {
 		// The next step is to get the basket
 		require_once(BASE_URI.'modules/basket.class.php');
 		$basket = new basket();
+		$_SESSION['basket'] = $basket->id;
 		
 		// so the next step is building the restful URL
 		$url = "http://www.cems.uwe.ac.uk/~pchatter/rest/rest.php?service=cardAuth&msg_id=". str_pad($basket->id, 4, '0', STR_PAD_LEFT) ."&num_md5=". $num_md5 ."&amount=". $basket->calcFinalValue() ."&currency=GBP&api_key=739a720ade31ad2a14b30aa7b3a6b20e";

@@ -24,6 +24,7 @@ require_once(BASE_URI.'modules/product.class.php');
 
 // Create a new product
 $basket = new basket();
+$_SESSION['basket'] = $basket->id;
 
 // Get the action
 $action = $_POST['a'];
