@@ -24,7 +24,10 @@ class basket {
 			$db->query("INSERT INTO `basket` (`paid`) VALUES (0)");
 
 			// Get the ID number of the basket
-			$basket_id = (int) $db->insert_id;
+			$basket_id = $db->insert_id;
+			
+			print_r($basket_id);
+			die();
 
 			// Set the ID number of the newly created basket to a session
 			$_SESSION['basket'] = $basket_id;
