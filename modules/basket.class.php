@@ -53,8 +53,6 @@ class basket {
 			
 		}
 		
-		var_dump($_SESSION['basket']);
-		
 		// Return true
 		return true;
 	}
