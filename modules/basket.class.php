@@ -8,7 +8,7 @@
 class basket {
 	
 	// Variables
-	private $id;
+	public $id;
 	private $paid;
 	
 	// Construction function
@@ -209,7 +209,7 @@ class basket {
 		}
 		
 		// Return the final price
-		return $price;
+		return number_format($price, 2);
 		
 	}
 	
