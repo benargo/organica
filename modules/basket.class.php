@@ -25,6 +25,8 @@ class basket {
 
 			// Get the ID number of the basket
 			$basket_id = $db->insert_id;
+			
+			$_SESSION['basket'] = $basket_id;
 
 			// Set the object variables
 			$this->id = $basket_id;
@@ -43,6 +45,9 @@ class basket {
 			// Set the variables
 			$this->id = $basket->id;
 			$this->paid = $basket->paid;
+			
+			// This is an override to make sure it works a second time around
+			$_SESSION['basket'] = $basket_id;
 			
 		}
 	}

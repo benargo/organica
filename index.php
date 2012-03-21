@@ -92,11 +92,6 @@ include_once (BASE_URI.'/includes/footer.inc');
 // Close the database connections
 $db->close();
 
-// Set the basket session
-if($basket) {
-	$_SESSION['basket'] = $basket->id;
-}
-
 ob_end_flush();
 
 ?>
