@@ -15,7 +15,7 @@ class basket {
 	public function __construct() {
 		
 		// First include the database
-		global $db;
+		global $db; 
 		
 		// Check to see if we have a session
 		if(!isset($_SESSION['basket'])) {
@@ -47,6 +47,8 @@ class basket {
 		}
 		
 		$_SESSION['basket'] = (int) $this->id;
+		
+		print_r($_SESSION['basket']);
 		
 	}
 	
