@@ -125,3 +125,5 @@ switch($action) {
 	<input type="hidden" name="a" value="empty" />
 	<input type="submit" value="Empty Basket" />
 </form></p>
+<?php
+var_dump($basket); ?>

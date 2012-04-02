@@ -41,14 +41,16 @@ class basket {
 			$basket = $sql->fetch_object();
 
 			// Set the variables
-			$this->id = $basket->id;
+			$this->id = (int) $basket->id;
 			$this->paid = $basket->paid;
 			
 		}
 		
-		var_dump($basket_id);
-		
 		$_SESSION['basket'] = $basket_id;
+	}
+	
+	public function __destruct() {
+	
 	}
 	
 	// Add an item to the basket
@@ -219,6 +221,11 @@ class basket {
 		// Run the first database query
 		// We want to remove all of the basket items
 		$db->query("DELETE FROM `basket_items` WHERE `basket` = ". $this->id);
+		
+		// This destroys the entire basket session
+		unset($_SESSION['basket']);
+		
+		$this->__destruct();
 		
 	}
 	
