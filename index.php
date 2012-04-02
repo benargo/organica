@@ -9,9 +9,6 @@
 // Start PHP sessions
 session_start();
 
-// Start output buffering
-ob_start();
-
 // Require the configuration files before any PHP code:
 require_once('modules/config.inc.php');
 
@@ -92,6 +89,6 @@ include_once (BASE_URI.'/includes/footer.inc');
 // Close the database connections
 $db->close();
 
-ob_end_flush();
+@var_dump($_SESSION['basket'];
 
 ?>

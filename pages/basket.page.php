@@ -24,7 +24,6 @@ require_once(BASE_URI.'modules/product.class.php');
 
 // Create a new product
 $basket = new basket();
-var_dump($basket);
 
 // Get the action
 $action = $_POST['a'];
