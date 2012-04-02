@@ -22,7 +22,7 @@ if (!defined('BASE_URL')) {
 require_once(BASE_URI.'modules/basket.class.php');
 require_once(BASE_URI.'modules/product.class.php');
 
-// Create a new product
+// Create a new basket
 $basket = new basket();
 
 // Get the action
@@ -124,6 +124,6 @@ switch($action) {
 </form><form action="<?php echo BASE_URL; ?>basket" method="post">
 	<input type="hidden" name="a" value="empty" />
 	<input type="submit" value="Empty Basket" />
-</form></p>
-<?php
-var_dump($basket); ?>
+</form></p><?
+
+?>
