@@ -1,5 +1,5 @@
 /***********************************************************************
- * @file: creteo.less -> creteo.css
+ * @file: organica.less -> organica.css
  * @lang: LESS -> CSS
  * @author: 10008548
  * @project: WDP Project 2
@@ -10,6 +10,8 @@
  *
  * Please note, the table of contents are relevant to the LESS source
  * code, and may not match in the compiled CSS.
+ *
+ * It has been ported to work with Web Programming
  *
  * Table of Contents
  *
@@ -56,28 +58,26 @@
   margin: 0;
   padding: 0;
 }
-.bold {
-  font-weight: bold;
+.clear {
+  clear: both;
 }
-.italics {
-  font-style: italic;
-}
+/* Custom Fonts */
 @font-face {
   font-family: 'Alegreya SC';
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: local('Alegreya SC'), local('AlegreyaSC-Regular'), url('http://themes.googleusercontent.com/static/fonts/alegreyasc/v3/-74JUGs8W14C5cCBFRS307rIa-7acMAeDBVuclsi6Gc.woff') format('woff');
 }
 @font-face {
   font-family: 'Marck Script';
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: local('Marck Script'), local('MarckScript-Regular'), url('http://themes.googleusercontent.com/static/fonts/marckscript/v4/O_D1NAZVOFOobLbVtW3bcqRDOzjiPcYnFooOUGCOsRk.woff') format('woff');
 }
 @font-face {
   font-family: 'Cantata One';
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: local('Cantata One'), local('CantataOne-Regular'), url('http://themes.googleusercontent.com/static/fonts/cantataone/v1/Ur66QXTDfN1RjqAm41DRZbrIa-7acMAeDBVuclsi6Gc.woff') format('woff');
 }
 /* 2. Desktop screens */
@@ -87,12 +87,23 @@
     font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
     background: #fff2e0;
   }
+  a {
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+  }
+  .wrapper {
+    width: 960px;
+    margin: 0 auto;
+  }
   /* 2.2. Header */
   body > header {
-    background: #824328;
-    border-bottom: solid 3px #d9b066;
-    height: 122px;
-    /* 2.3. Primary Navigation */
+    background: #2a1910;
+    height: 132px;
+    /* // #skip */
+  
+    /* // #logo */
   
   }
   body > header #skip {
@@ -101,9 +112,9 @@
     margin: 0 auto;
     padding: 5px 0;
     opacity: 0;
-    background: #f7f6f6;
+    background: #fff2e0;
     font-size: 0.7em;
-    color: #292828;
+    color: #2f1812;
     text-decoration: none;
     text-align: center;
     border-left: solid 2px #e7435e;
@@ -120,11 +131,8 @@
     opacity: 1;
     outline: 0;
   }
-  body > header hgroup {
-    float: left;
-    margin: -18px 0 0 20px;
-  }
-  body > header hgroup a {
+  body > header #logo {
+    margin: -14px auto 10px;
     display: block;
     padding: 10px 20px 20px;
     border: solid 1px transparent;
@@ -136,107 +144,164 @@
     border-radius: 5px 5px 5px 5px;
     text-decoration: none;
   }
-  body > header hgroup a:hover {
-    background: #a3693a;
-  }
-  body > header hgroup a:active {
-    background: #a3693a;
+  body > header #logo:hover {
     border: solid 1px #e7435e;
   }
-  body > header hgroup a:focus {
+  body > header #logo:active {
+    border: solid 1px #e7435e;
+  }
+  body > header #logo:focus {
     outline: none;
     border: solid 1px #e7435e;
   }
-  body > header hgroup h1 {
+  body > header #logo h1 {
     font-family: 'Alegreya SC', serif;
     font-size: 2.6em;
     color: #f7f6f6;
     text-align: center;
     font-weight: 600;
   }
-  body > header hgroup h2 {
-    font-family: 'Alegreya SC', serif;
+  body > header #logo h2 {
+    font-family: 'Marck Script', serif;
     font-size: 1.1em;
-    color: #d9b066;
+    color: #fff2e0;
     text-align: center;
   }
-  body > header nav {
-    float: right;
-    height: 33px;
-    margin: 65px 20px 0 auto;
-    background: #d9b066;
-    border: solid 0 transparent;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 0px;
-    -moz-border-radius-bottomleft: 0px;
-    -webkit-border-radius: 5px 5px 0px 0px;
-    border-radius: 5px 5px 0px 0px;
+  /* // body > header */
+  /* 2.3. Primary Navigation */
+  nav {
+    height: 35px;
+    background: #6d4f3f;
+    /* // nav li > a */
+  
   }
-  body > header nav li {
-    display: block;
-    float: left;
-    height: 33px;
-    line-height: 33px;
-    list-item-style: none;
+  nav ol {
+    width: 960px;
+    margin: 0 auto;
     text-align: center;
-    margin: 0 10px 0 0;
   }
-  body > header nav li:first-of-type {
-    margin: 0 10px 0 10px;
+  nav li {
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    list-style-type: none;
+    margin: 0 2px;
   }
-  body > header nav li > a {
+  nav li > a {
     display: block;
-    padding: 0 5px;
-    color: #292828;
+    padding: 0 10px;
+    color: #fff2e0;
     text-decoration: none;
-    border: solid 0 transparent;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 0px;
-    -moz-border-radius-bottomleft: 0px;
-    -webkit-border-radius: 5px 5px 0px 0px;
-    border-radius: 5px 5px 0px 0px;
-    -webkit-transition: all 200ms ease;
-    -moz-transition: all 200ms ease;
-    -o-transition: all 200ms ease;
-    transition: all 200ms ease;
   }
-  body > header nav li > a:hover {
-    background: #a3693a;
+  nav li > a.active {
+    background: #fff2e0;
+    color: #e7435e;
   }
-  body > header nav li > a:focus {
-    background: #a3693a;
+  nav li > a:hover {
+    background: #fff2e0;
+    color: #e7435e;
+  }
+  nav li > a:focus {
+    background: #fff2e0;
+    color: #e7435e;
     outline: 0;
   }
-  body > #search {
+  /* // nav */
+  article {
+    width: 640px;
+    margin: 0 0 20px;
+    padding: 10px 0 0;
+  }
+  article * {
+    margin: 0 0 20px;
+  }
+  article p {
+    line-height: 1.3em;
+  }
+  /* // article */
+  aside {
+    float: right;
     width: 300px;
-    height: 33px;
-    margin: 0 20px 0 auto;
-    background: #d9b066;
-    border: solid 2px #d9b066;
-    -moz-border-radius-topleft: 0px;
-    -moz-border-radius-topright: 0px;
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -webkit-border-radius: 0px 0px 5px 5px;
-    border-radius: 0px 0px 5px 5px;
+    margin: 0 0 20px 20px;
+    padding: 10px 0 0;
+    /* // aside a */
+  
+    /* Search Feature */
+  
+    /* // #search */
+  
   }
-  body > #search input[type="text"] {
-    width: 250px;
-    height: 27px;
-    padding: 2px;
-    margin: -2px 2px 2px;
-    background: #f7f6f6;
-    border: solid 1px #d9b066;
-    font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
-    font-size: 0.9em;
+  aside * {
+    margin: 0 0 10px;
   }
-  body > #search input[type="text"]:focus {
+  aside a {
+    color: #e7435e;
+    text-decoration: none;
+    /* // aside a > img */
+  
+  }
+  aside a:hover {
+    text-decoration: underline;
+  }
+  aside a:focus {
+    text-decoration: underline;
+    outline: 0;
+  }
+  aside a > img {
+    display: block;
+    margin: 0 0 0 -1px;
+    border: solid 1px transparent;
+  }
+  aside a > img:hover {
+    border: solid 1px #e7435e;
+  }
+  aside a > img:active {
+    border: solid 1px #e7435e;
+  }
+  aside a > img:focus {
     outline: 0;
     border: solid 1px #e7435e;
   }
-  body > #search input[type="submit"] {
+  aside ul,
+  aside ol {
+    margin: 0;
+    padding: 0 0 0 20px;
+  }
+  aside #search {
+    width: 300px;
+    height: 37px;
+    margin: 10px 20px 20px auto;
+    background: #6d4f3f;
+    border: solid 2px #6d4f3f;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 1px 1px 1px 1px #6d4f3f;
+    -moz-box-shadow: 1px 1px 1px 1px #6d4f3f;
+    box-shadow: 1px 1px 1px #6d4f3f;
+    /* // input[type="text"] */
+  
+    /* // input[type="submit"] */
+  
+  }
+  aside #search input[type="text"] {
+    width: 250px;
+    height: 27px;
+    padding: 2px;
+    margin: 2px 2px 2px;
+    background: #f7f6f6;
+    border: solid 1px #6d4f3f;
+    font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+    font-size: 0.9em;
+  }
+  aside #search input[type="text"]:focus {
+    outline: 0;
+    border: solid 1px #e7435e;
+  }
+  aside #search input[type="submit"] {
     display: inline-block;
     width: 29px;
     height: 29px;
@@ -247,137 +312,193 @@
     color: #f7f6f6;
     font-size: 1.0em;
   }
-  body > #search input[type="submit"]:hover {
+  aside #search input[type="submit"]:hover {
     border: solid 1px #e7435e;
   }
-  body > #search input[type="submit"]:active {
+  aside #search input[type="submit"]:active {
     border: solid 1px #e7435e;
-    background-color: #824328;
+    background-color: #2a1910;
   }
-  body > #search input[type="submit"]:focus {
+  aside #search input[type="submit"]:focus {
     outline: 0;
     border: solid 1px #e7435e;
   }
-  body > article {
-    margin: -13px 10px 20px 20px;
+  /* // aside */
+  /* Page Footer */
+  footer {
+    clear: both;
+    /* // #footer-left */
+  
+    /* // #footer-right */
+  
   }
-  body > article * {
-    margin: 0 0 10px;
-  }
-  body > article a {
-    color: #e7435e;
-    text-decoration: none;
-  }
-  body > article a:hover {
-    text-decoration: underline;
-  }
-  body > article a:focus {
-    text-decoration: underline;
-    outline: 0;
-  }
-  body > article .product {
-    text-align: center;
-    display: inline-block;
-  }
-  body > aside {
-    float: right;
-    width: 300px;
-    margin: 10px 20px 20px 10px;
-  }
-  body > aside * {
-    margin: 0 0 10px;
-  }
-  body > aside .product {
-    padding: 5px;
-    border: solid 2px transparent;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-  }
-  body > aside .product a:hover {
-    text-decoration: none;
-  }
-  body > aside .product .product_img {
-    display: block;
-    padding: 10px;
-    background-color: #ffffff;
-    border: solid 2px transparent;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-  }
-  body > aside .product .product_img:hover {
-    border: solid 2px transparent;
-  }
-  body > aside .product:hover {
-    border: solid 2px #E7435E;
-  }
-  body > aside a {
-    color: #e7435e;
-    text-decoration: none;
-  }
-  body > aside a:hover {
-    text-decoration: underline;
-  }
-  body > aside a:focus {
-    text-decoration: underline;
-    outline: 0;
-  }
-  body > aside a > img {
-    display: block;
-    margin: 0 0 0 -1px;
-    border: solid 1px transparent;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-topright: 3px;
-    -moz-border-radius-bottomright: 3px;
-    -moz-border-radius-bottomleft: 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
-    border-radius: 3px 3px 3px 3px;
-  }
-  body > aside a > img:hover {
-    border: solid 1px #e7435e;
-  }
-  body > aside a > img:active {
-    border: solid 1px #e7435e;
-  }
-  body > aside a > img:focus {
-    outline: 0;
-    border: solid 1px #e7435e;
-  }
-  body > footer #footer-left {
+  footer #footer-left {
     float: left;
-    margin: 10px;
+    margin: 38px 0 10px;
     font-size: 0.7em;
+    /* // #footer-left a */
+  
   }
-  body > footer #footer-left p {
+  footer #footer-left p {
     margin: 0 0 5px 0;
   }
-  body > footer #footer-left a {
+  footer #footer-left a {
     color: #e7435e;
     text-decoration: none;
   }
-  body > footer #footer-left a:hover {
+  footer #footer-left a:hover {
     text-decoration: underline;
   }
-  body > footer #footer-left a:focus {
+  footer #footer-left a:focus {
     outline: none;
     text-decoration: underline;
   }
-  body > footer #footer-right {
+  footer #footer-right {
     float: right;
-    margin: 10px;
+    margin: 10px 0;
+    /* // #footer-right a */
+  
   }
-  body > footer #footer-right a {
+  footer #footer-right a {
     display: inline-block;
     height: 50px;
     padding: 5px;
     border: solid 1px transparent;
   }
-  body > footer #footer-right a:hover {
+  footer #footer-right a:hover {
     border: solid 1px #e7435e;
   }
-  body > footer #footer-right a:focus {
+  footer #footer-right a:focus {
     outline: none;
     border: solid 1px #e7435e;
   }
+  /* // footer */
+  .properties {
+    /* // .property */
+  
+  }
+  .properties .property {
+    float: left;
+    width: 310px;
+    /* // .price */
+  
+    /* // .ratings */
+  
+  }
+  .properties .property:nth-of-type(2n-1) {
+    clear: left;
+    margin-right: 20px;
+  }
+  .properties .property .price {
+    font-size: 1.4em;
+    font-weight: 600;
+  }
+  .properties .property .price:before {
+    content: "£";
+  }
+  .properties .property .price:after {
+    content: "pp";
+  }
+  .properties .property ul {
+    margin-left: 20px;
+  }
+  .properties .property ul li {
+    margin-bottom: 5px;
+  }
+  .properties .property .ratings dt {
+    clear: left;
+    float: left;
+    margin: 0 5px 5px 0;
+  }
+  .properties .property .ratings dt:after {
+    content: ":";
+  }
+  .properties .property .ratings dd {
+    float: left;
+    margin: 0 0 5px 0;
+  }
+  /* // .properties */
+  .poi {
+    /* // .place */
+  
+  }
+  .poi .place {
+    float: left;
+    width: 310px;
+  }
+  .poi .place:nth-of-type(2n-1) {
+    clear: left;
+    margin-right: 20px;
+  }
+  /* // .poi */
+  /* Contact Form */
+  .contact form {
+    /* // label */
+  
+  }
+  .contact form label {
+    width: 200px;
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+  }
+  .contact form label:after {
+    content: ":";
+  }
+  .contact form p.submit {
+    margin: -20px 0 0 205px;
+  }
+  .contact form input {
+    font-size: 1em;
+    border: solid 2px transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .contact form input[type="text"],
+  .contact form input[type="email"],
+  .contact form input[type="tel"] {
+    width: 406px;
+    padding: 5px;
+    margin: 0;
+    font-family: 'Helvetica', sans-serif;
+  }
+  .contact form input[type="submit"] {
+    padding: 5px;
+    background-color: #9e7064;
+    color: #f7f6f6;
+    border: solid 2px transparent;
+  }
+  .contact form input[type="submit"]:hover {
+    border: solid 2px #e7435e;
+  }
+  .contact form input:focus {
+    outline: 0;
+    border: solid 2px #e7435e;
+  }
+  .contact form textarea {
+    display: inline-block;
+    width: 406px;
+    max-width: 406px;
+    padding: 5px;
+    margin: 0;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1em;
+    line-height: 1.3em;
+    overflow: visible;
+    border: solid 2px transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  .contact form textarea:focus {
+    outline: 0;
+    border: solid 2px #e7435e;
+  }
+  .contact form .remaining {
+    display: block;
+    margin-right: 18px;
+    text-align: right;
+  }
+  /* // .contact */
 }

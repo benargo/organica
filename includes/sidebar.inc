@@ -1,4 +1,15 @@
 <!-- Start sidebar -->
+<aside>
+	<!-- Search Bar -->
+	<section id="search">
+		<h2>Search</h2>
+		<form id="search" action="#" method="get">
+			<input type="text" name="search_terms" placeholder="Search..." /> <input type="submit" value="Go" />
+		</form>
+	</section>
+	<!-- Search Bar -->
+	
+	<!-- Featured Produce -->
 	<section id="featured_produce">
     	<h2>Featured Produce</h2>
 		<?php
@@ -15,8 +26,9 @@
 					<p>£<?php echo $product->price; ?></p> 
 				</a>
 			</div><?php
-
 		}
 		?>
 	</section>
+	<!-- Featured Produce -->
+</aside>
 <!-- End sidebar -->
