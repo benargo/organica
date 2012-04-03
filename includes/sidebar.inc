@@ -1,7 +1,7 @@
 <!-- Start sidebar -->
 <aside>
 	<!-- Search Bar -->
-	<section id="search">
+	<section class="search">
 		<h2>Search</h2>
 		<form id="search" action="#" method="get">
 			<input type="text" name="search_terms" placeholder="Search..." /> <input type="submit" value="Go" />
