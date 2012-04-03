@@ -87,7 +87,7 @@ include (BASE_URI.'/pages/' . $page);
 include_once (BASE_URI.'/includes/footer.inc');
 
 // Update the basket session if we have an active basket
-if(isset($basket) {
+if(isset($basket)) {
 	$_SESSION['basket'] = (int) $basket->id;
 }
 
