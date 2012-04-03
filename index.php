@@ -86,11 +86,12 @@ include (BASE_URI.'/pages/' . $page);
 // Include the footer file to complete the template:
 include_once (BASE_URI.'/includes/footer.inc');
 
+// Update the basket session if we have an active basket
+if(isset($basket) {
+	$_SESSION['basket'] = (int) $basket->id;
+}
+
 // Close the database connections
 $db->close();
-
-@var_dump($_SESSION['basket']);
-
-
 
 ?>

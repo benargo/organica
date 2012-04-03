@@ -27,8 +27,8 @@ class basket {
 			$basket_id = $db->insert_id;
 
 			// Set the object variables
-			$this->id = $basket_id;
-			$this->paid = 0;
+			$this->id = (int) $basket_id;
+			$this->paid = (int) 0;
 			
 		} else {
 				
@@ -47,8 +47,6 @@ class basket {
 		}
 		
 		$_SESSION['basket'] = (int) $this->id;
-		
-		print_r($_SESSION['basket']);
 		
 	}
 	
