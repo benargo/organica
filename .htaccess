@@ -20,12 +20,3 @@ Options -Indexes +FollowSymLinks -Multiviews
 
 # 3. Add custom file types
 AddType application/x-httpd-php .inc
-
-# 4. Enable compression
-SetOutputFilter DEFLATE
-BrowserMatch ^Mozilla/4 gzip-only-text/html
-BrowserMatch ^Mozilla/4\.0[678] no-gzip
-BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
-SetEnvIfNoCase Request_URI \
-\.(?:gif|jpe?g|png)$ no-gzip dont-vary
-Header append Vary User-Agent env=!dont-vary
