@@ -6,6 +6,9 @@
  *	the templates, and any content-specific modules.
  */
 
+// Start output buffering
+ob_start();
+
 // Start PHP sessions
 session_start();
 
@@ -93,5 +96,8 @@ if(isset($basket)) {
 
 // Close the database connections
 $db->close();
+
+// End output buffering
+ob_end_flush();
 
 ?>

@@ -26,63 +26,66 @@ require_once(BASE_URI.'modules/product.class.php');
 $basket = new basket();
 
 // Get the action
-$action = $_POST['a'];
+if(isset($_POST['a'])) {
+	
+	$action = $_POST['a'];
 
-// Loop through the possible actions
-switch($action) {
+	// Loop through the possible actions
+	switch($action) {
 	
-	// Add products
-	case 'add':
+		// Add products
+		case 'add':
 		
-		// Get some variables
-		$id = $_POST['id'];
-		$q = $_POST['q'];
+			// Get some variables
+			$id = $_POST['id'];
+			$q = $_POST['q'];
 		
-		// Run the database query
-		$basket->addItem($id, $q) or die('Failed to add item to basket');
+			// Run the database query
+			$basket->addItem($id, $q) or die('Failed to add item to basket');
 		
-		// Finish this iteration
-		break;
+			// Finish this iteration
+			break;
 	
-	// Update the quantity
-	case 'edit':
+		// Update the quantity
+		case 'edit':
 		
-		// Get some variables
-		$id = $_POST['id'];
-		$q = $_POST['q'];
+			// Get some variables
+			$id = $_POST['id'];
+			$q = $_POST['q'];
 		
-		// Run the database query
-		$basket->changeQuantity($id, $q) or die('Failed to update basket');
+			// Run the database query
+			$basket->changeQuantity($id, $q) or die('Failed to update basket');
 		
-		// Finish this iteration
-		break;
+			// Finish this iteration
+			break;
 		
-	// Remove the product
-	case 'rm':
+		// Remove the product
+		case 'rm':
 	
-		// Get some variables
-		$id = $_POST['id'];
+			// Get some variables
+			$id = $_POST['id'];
 		
-		// Run the database query
-		$basket->rmItem($id);
+			// Run the database query
+			$basket->rmItem($id);
 		
-		// Finish this iteration
-		break;
+			// Finish this iteration
+			break;
 		
-	// Empty the whole basket
-	case 'empty':
+		// Empty the whole basket
+		case 'empty':
 	
-		// Run the database query
-		$basket->emptyBasket();
+			// Run the database query
+			$basket->emptyBasket();
 		
-		// Finish this iteration
-		break;
+			// Finish this iteration
+			break;
 		
-	// If we didn't set a task (illegal call)
-	default:
+		// If we didn't set a task (illegal call)
+		default:
 		
-		// Finish this iteration
-		break;
+			// Finish this iteration
+			break;
+	}
 }
 ?><h1>Basket</h1><?php
 

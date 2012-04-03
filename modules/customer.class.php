@@ -126,7 +126,7 @@ class customer {
 		$post_code = $post['post_code'];
 		$email = $post['email'];
 		$phone = $post['phone'];
-		$password = $post['password'];
+		$password = md5($post['password']);
 		
 		// Create the account in the database
 		$db->query("INSERT INTO `customers` (`title`, `first_name`, `last_name`, `address`, `post_code`, `email`, `phone`, `password`) VALUES ($title, '$first_name', '$last_name', '$address', '$post_code', '$email', $phone, '$password')") or die($db->error);
@@ -164,7 +164,7 @@ class customer {
 		
 		$c = $sql->fetch_object();
 		
-		if($c->password == $password) {
+		if($c->password == md5($password)) {
 			
 			$_SESSION['customer'] = $c->id;
 			

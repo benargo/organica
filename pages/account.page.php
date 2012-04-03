@@ -43,7 +43,11 @@ if(isset($_GET['a'])) {
 		
 		<form action="<?php echo BASE_URL; ?>account" method="post">
 			<input type="hidden" name="a" value="loginSubmit" />
-			<input type="hidden" name="ref" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" />
+			<input type="hidden" name="ref" value="<?php if(isset($_POST['ref'])) {
+					echo $_POST['ref']; 
+				} else {
+					echo $_SERVER['HTTP_REFERER'];
+				} ?>" />
 			<p>Email Address: <input type="email" name="email" placeholder="john.smith@example.com" /></p>
 			<p>Password: <input type="password" name="password" /></p>
 			<p><input type="submit" value="Login" /></p>
@@ -57,7 +61,11 @@ if(isset($_GET['a'])) {
 		
 		<form action="<?php echo BASE_URL; ?>account" method="post">
 			<input type="hidden" name="a" value="registerSubmit" />
-			<input type="hidden" name="ref" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" />	
+			<input type="hidden" name="ref" value="<?php if(isset($_POST['ref'])) {
+					echo $_POST['ref']; 
+				} else {
+					echo $_SERVER['HTTP_REFERER'];
+				} ?>" />	
 			<p>Title: <?php echo $customer->getTitles(); ?></p>
 			<p>First Name: <input type="text" name="first_name" placeholder="John" required /></p>
 			<p>Last Name: <input type="text" name="last_name" placeholder="Smith" required /></p>

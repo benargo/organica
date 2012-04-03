@@ -32,7 +32,7 @@ class basket {
 			
 		} else {
 				
-			$basket_id = (int) $_SESSION['basket'];
+			$basket_id = $_SESSION['basket'];
 			
 			// Run the database query
 			$sql = $db->query("SELECT * FROM `basket` WHERE `id` = ". $basket_id ." LIMIT 0, 1");
@@ -235,7 +235,12 @@ class basket {
 	}
 	
 	public function destroyBasket() {
+		
+		// This destroys the entire basket session
 		unset($_SESSION['basket']);
+		
+		// Destroy the basket object
+		$this->__destruct();
 	}
 }
 	
