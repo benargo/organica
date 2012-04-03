@@ -41,8 +41,8 @@ if ($local) {
 	
 } else {
 
-	define ('BASE_URI', '/nas/students/b/b2-argo/unix/public_html/wp/assignment/');
-	define ('BASE_URL',	'http://www.cems.uwe.ac.uk/~b2-argo/wp/assignment/');
+	define ('BASE_URI', '/home/benargo.com/v7.1/projects/organica/');
+	define ('BASE_URL',	'http://projects.benargo.com/organica/');
 	define ('DB', BASE_URI.'includes/mysql.inc');
 	
 }
