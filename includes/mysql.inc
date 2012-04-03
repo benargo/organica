@@ -6,9 +6,9 @@
  */
 
 $host     = "rs1.benargo.net";
-$username = "beady";
+$username = "organica";
 $password = "ZNgnGyu364r7xZo32FmAj$";
-$database = "beady";
+$database = "organica";
 
 $db = new mysqli($host, $username, $password, $database);
 
