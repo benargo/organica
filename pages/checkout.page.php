@@ -143,10 +143,12 @@ switch($stage) {
 			
 			// Stop the script from going any further
 			exit;
+			
+			$basket->order("fail");
 		}
 		
 		// Okay so it's gone through fine, let's mark the basket as paid.
-		$basket->paid();
+		$basket->order("pay");
 		
 		// Destroy the basket now
 		$basket->destroyBasket();

@@ -142,13 +142,36 @@ class basket {
 	}
 	
 	// Set the basket as paid
-	public function paid() {
+	public function order($action) {
 		
 		// Include the database details
 		global $db; 
 		
-		// Set the basket as paid
-		$db->query("UPDATE `basket` SET `paid` = 1 WHERE `id` = ". $this->id);
+		// Get the customer
+		$customer = $_SESSION['customer'];
+		
+		switch($action) {
+			
+			// In this case the customer successfully paid
+			case "pay":
+				
+				// Set the basket as paid
+				$db->query("UPDATE `basket` SET `paid` = 1 WHERE `id` = ". $this->id);
+
+				// Place the order
+				$db->query("INSERT INTO `orders` (`basket`, `customer`, `status`) VALUES (". $this->id .", ". $customer .", 1)");
+			
+				break;
+				
+			// In this final case the order failed
+			case "fail":
+				
+				// Set the order to failed
+				$db->query("INSERT INTO `orders` (`basket`, `customer`, `status`) VALUES (". $this->id .", ". $customer .", 4)");
+				
+				break;
+			
+		}
 		
 		// Return true
 		return true;
