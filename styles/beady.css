@@ -1,5 +1,5 @@
 /***********************************************************************
- * @file: organica.less -> organica.css
+ * @file: creteo.less -> creteo.css
  * @lang: LESS -> CSS
  * @author: 10008548
  * @project: WDP Project 2
@@ -10,8 +10,6 @@
  *
  * Please note, the table of contents are relevant to the LESS source
  * code, and may not match in the compiled CSS.
- *
- * It has been ported to work with Web Programming
  *
  * Table of Contents
  *
@@ -323,6 +321,31 @@
     outline: 0;
     border: solid 1px #e7435e;
   }
+  aside .product {
+    padding: 5px;
+    border: solid 2px transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  aside .product a:hover {
+    text-decoration: none;
+  }
+  aside .product .product_img {
+    display: block;
+    padding: 10px;
+    background-color: #ffffff;
+    border: solid 2px transparent;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  aside .product .product_img:hover {
+    border: solid 2px transparent;
+  }
+  aside .product:hover {
+    border: solid 2px #E7435E;
+  }
   /* // aside */
   /* Page Footer */
   footer {
@@ -373,110 +396,52 @@
     border: solid 1px #e7435e;
   }
   /* // footer */
-  .properties {
-    /* // .property */
-  
-  }
-  .properties .property {
-    float: left;
-    width: 310px;
-    /* // .price */
-  
-    /* // .ratings */
-  
-  }
-  .properties .property:nth-of-type(2n-1) {
-    clear: left;
-    margin-right: 20px;
-  }
-  .properties .property .price {
-    font-size: 1.4em;
-    font-weight: 600;
-  }
-  .properties .property .price:before {
-    content: "£";
-  }
-  .properties .property .price:after {
-    content: "pp";
-  }
-  .properties .property ul {
-    margin-left: 20px;
-  }
-  .properties .property ul li {
-    margin-bottom: 5px;
-  }
-  .properties .property .ratings dt {
-    clear: left;
-    float: left;
-    margin: 0 5px 5px 0;
-  }
-  .properties .property .ratings dt:after {
-    content: ":";
-  }
-  .properties .property .ratings dd {
-    float: left;
-    margin: 0 0 5px 0;
-  }
-  /* // .properties */
-  .poi {
-    /* // .place */
-  
-  }
-  .poi .place {
-    float: left;
-    width: 310px;
-  }
-  .poi .place:nth-of-type(2n-1) {
-    clear: left;
-    margin-right: 20px;
-  }
-  /* // .poi */
-  /* Contact Form */
-  .contact form {
+  /* FForm */
+  form {
     /* // label */
   
   }
-  .contact form label {
+  form label {
     width: 200px;
     display: inline-block;
     margin: 0;
     vertical-align: top;
   }
-  .contact form label:after {
+  form label:after {
     content: ":";
   }
-  .contact form p.submit {
+  form p.submit {
     margin: -20px 0 0 205px;
   }
-  .contact form input {
+  form input {
     font-size: 1em;
     border: solid 2px transparent;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
   }
-  .contact form input[type="text"],
-  .contact form input[type="email"],
-  .contact form input[type="tel"] {
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"] {
     width: 406px;
     padding: 5px;
     margin: 0;
     font-family: 'Helvetica', sans-serif;
   }
-  .contact form input[type="submit"] {
+  form input[type="submit"] {
     padding: 5px;
     background-color: #9e7064;
     color: #f7f6f6;
     border: solid 2px transparent;
   }
-  .contact form input[type="submit"]:hover {
+  form input[type="submit"]:hover {
     border: solid 2px #e7435e;
   }
-  .contact form input:focus {
+  form input:focus {
     outline: 0;
     border: solid 2px #e7435e;
   }
-  .contact form textarea {
+  form textarea {
     display: inline-block;
     width: 406px;
     max-width: 406px;
@@ -491,14 +456,9 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
   }
-  .contact form textarea:focus {
+  form textarea:focus {
     outline: 0;
     border: solid 2px #e7435e;
   }
-  .contact form .remaining {
-    display: block;
-    margin-right: 18px;
-    text-align: right;
-  }
-  /* // .contact */
+  /* // forms */
 }
