@@ -10,7 +10,7 @@ Options -Indexes +FollowSymLinks -Multiviews
 	RewriteEngine On
 	
 	# 2.2 mod_rewrite base
-	RewriteBase /
+	RewriteBase /organica/
 	
 	# 2.3. Rewrite pages
 	RewriteCond %{REQUEST_FILENAME} !-d
