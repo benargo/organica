@@ -3,8 +3,8 @@
 	<!-- Search Bar -->
 	<section class="search">
 		<h2>Search</h2>
-		<form id="search" action="#" method="get">
-			<input type="text" name="search_terms" placeholder="Search..." /> <input type="submit" value="Go" />
+		<form id="search" action="<?php echo BASE_URL; ?>search" method="get">
+			<input type="text" name="q" placeholder="Search..." /> <input type="submit" value="Go" />
 		</form>
 	</section>
 	<!-- Search Bar -->
